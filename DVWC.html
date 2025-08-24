@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Divine Victory Worship Centre</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: Arial, sans-serif; line-height:1.6; scroll-behavior: smooth; background:#f8f9fa; position:relative; z-index:1; }
+
+/* Watermark cross background */
+body::before {
+  content: "";
+  position: fixed; top:0; left:0; width:100%; height:100%;
+  background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Christian_cross.svg/800px-Christian_cross.svg.png') no-repeat center;
+  background-size: 400px; opacity:0.05; z-index:-1;
+}
+
+/* HERO BANNER */
+.hero {
+  background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
+  height:70vh; display:flex; flex-direction:column; justify-content:center; align-items:center; color:white; text-align:center; padding:0 20px;
+}
+.hero h1 { font-size:3rem; text-shadow:2px 2px 10px rgba(0,0,0,0.6); margin-bottom:10px; }
+.hero p { font-size:1.5rem; text-shadow:1px 1px 8px rgba(0,0,0,0.6); }
+
+/* NAVIGATION */
+nav { display:flex; justify-content:center; background:#34495e; position:sticky; top:0; z-index:10; }
+nav a { color:white; padding:15px 20px; text-decoration:none; transition:0.3s; }
+nav a:hover { background:#2c3e50; }
+
+section { padding:60px 20px; text-align:center; background:#ffffffcc; margin:20px; border-radius:10px; }
+section h2 { margin-bottom:30px; color:#2c3e50; font-size:2rem; }
+
+.services { display:flex; flex-wrap:wrap; justify-content:center; gap:20px; }
+.card { background:white; padding:20px; border-radius:10px; width:250px; box-shadow:0 5px 15px rgba(0,0,0,0.1); transition: transform 0.3s, box-shadow 0.3s; }
+.card:hover { transform:translateY(-5px); box-shadow:0 10px 20px rgba(0,0,0,0.2); }
+
+blockquote { font-size:1.2rem; font-style:italic; color:#555; max-width:700px; margin:0 auto; min-height:60px; }
+
+/* Countdown Timer */
+#countdown { font-size:1.5rem; color:#2c3e50; margin-top:20px; font-weight:bold; }
+
+/* Typewriter animation */
+#animatedScripture { border-right: .15em solid #2c3e50; white-space: nowrap; overflow: hidden; width:0; animation: typing 8s steps(80, end) forwards; margin:0 auto; max-width:700px; }
+@keyframes typing { from { width:0 } to { width:100% } }
+
+button { padding:12px 25px; border:none; background:#27ae60; color:white; font-size:16px; cursor:pointer; border-radius:5px; transition:background 0.3s; }
+button:hover { background:#219150; }
+
+footer { background:#2c3e50; color:white; text-align:center; padding:20px; }
+
+@media(max-width:768px){ .services { flex-direction:column; align-items:center; } .hero h1 { font-size:2.2rem; } .hero p { font-size:1.2rem; } }
+</style>
+</head>
+<body>
+
+<!-- HERO BANNER -->
+<div class="hero">
+  <h1>Divine Victory Worship Centre ⛪</h1>
+  <p>“A place to grow in faith and fellowship”</p>
+</div>
+
+<!-- NAVIGATION -->
+<nav>
+  <a href="#about">About</a>
+  <a href="#services">Services</a>
+  <a href="#scripture">Scripture</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<!-- ABOUT -->
+<section id="about">
+  <h2>About Us</h2>
+  <p>Sharing the Gospel and helping people build a strong relationship with God. Never stop praying.</p>
+  <p><strong>Pastor:</strong> Apostle Maria Magakwe 👨‍🦳</p>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <h2>Our Services</h2>
+  <div class="services">
+    <div class="card"><h3>Sunday Worship</h3><p>📖 9:00 AM</p></div>
+    <div class="card"><h3>Prayer</h3><p>🙏 Monday-Friday 5:30 PM</p></div>
+    <div class="card"><h3>Youth Fellowship</h3><p>🎶 Friday 5:30 PM</p></div>
+  </div>
+</section>
+
+<!-- SCRIPTURE -->
+<section id="scripture">
+  <h2>Scripture of the Week</h2>
+  <blockquote id="animatedScripture"></blockquote>
+</section>
+
+<!-- COUNTDOWN -->
+<section id="countdownSection">
+  <h2>Countdown to Next Sunday Service</h2>
+  <div id="countdown"></div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <h2>Contact Us</h2>
+  <p><strong>Location:</strong> Marble Hall, Matlelerekeng, South Africa</p>
+  <p><a href="https://maps.google.com" target="_blank">📍 View on Google Maps</a></p>
+  <p><strong>Phone:</strong> 0763841858 | 0673218874</p>
+  <p><strong>Email:</strong> divinevictory@example.com</p>
+  <button onclick="alert('Thank you for reaching out! God bless you ❤️')">Send Message</button>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>&copy; 2025 Divine Victory Worship Centre | Built with Love ✝️</p>
+  <p>Follow us:
+    <a href="#" style="color:white;text-decoration:none;">Facebook</a> |
+    <a href="#" style="color:white;text-decoration:none;">Instagram</a> |
+    <a href="#" style="color:white;text-decoration:none;">Twitter</a>
+  </p>
+</footer>
+
+<script>
+// Animated Scripture (Psalm 105)
+const scripture = "Give thanks to the LORD, call on His name; make known among the nations what He has done. – Psalm 105:1";
+const display = document.getElementById("animatedScripture");
+let i = 0;
+function typeWriter() {
+  if(i < scripture.length){
+    display.textContent += scripture.charAt(i);
+    i++;
+    setTimeout(typeWriter, 80);
+  }
+}
+typeWriter();
+
+// Countdown Timer to Next Sunday 9:00 AM
+function updateCountdown() {
+  const now = new Date();
+  const day = now.getDay(); // Sunday = 0
+  const diff = (7 - day) % 7; // days until next Sunday
+  let nextSunday = new Date();
+  nextSunday.setDate(now.getDate() + diff);
+  nextSunday.setHours(9,0,0,0);
+  if(nextSunday < now) nextSunday.setDate(nextSunday.getDate() + 7); // if today is past 9AM
+  const distance = nextSunday - now;
+  const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
+  const minutes = Math.floor((distance / (1000 * 60)) % 60);
+  const seconds = Math.floor((distance / 1000) % 60);
+  document.getElementById("countdown").textContent = `${hours}h ${minutes}m ${seconds}s`;
+}
+setInterval(updateCountdown, 1000);
+updateCountdown();
+</script>
+
+</body>
+</html>
